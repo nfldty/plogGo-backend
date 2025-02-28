@@ -7,7 +7,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta, datetime, timezone
 import os
 import base64
-import certifi
 from flask_cors import CORS
 from utils.classifier import classify_litter
 from utils.helper import *
@@ -17,6 +16,8 @@ import uuid
 api = Blueprint('api', __name__, url_prefix='/api')
 app = Flask(__name__)
 CORS(app)
+port = int(os.environ.get("PORT", 10000))
+
 
 # Set up Flask-SocketIO
 socketio = SocketIO(app, cors_allowed_origins="*")  # Allow connections from any origin
@@ -422,4 +423,4 @@ app.register_blueprint(api)
 
 if __name__ == '__main__':
    
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0',port=port, debug=False)
