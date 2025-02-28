@@ -7,7 +7,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta, datetime, timezone
 import os
 import base64
-import certifi
 from flask_cors import CORS
 from utils.classifier import classify_litter
 from utils.helper import *
