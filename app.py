@@ -269,7 +269,7 @@ def register():
         return jsonify(message="Missing email or password"), 400
 
     # check if the username already exists
-    if db.user_authentication.find_one({'auth_email': email}):
+    if db.user.find_one({'email': email}):
         return jsonify(message="Email already exists"), 400
 
     # hash the password
@@ -277,8 +277,8 @@ def register():
 
     # save user registered data to database
     id = db.user_authentication.insert_one({
-        'auth_email': email, 
-        'auth_password': hashed_password
+        'email': email, 
+        'password': hashed_password
     })
     return jsonify(message="User registered successfully", user_id=id), 201
 
