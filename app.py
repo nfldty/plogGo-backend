@@ -194,7 +194,7 @@ def login():
     if not email or not password:
         return jsonify(message="Missing email or password"), 400
     # check if the username and password match
-    user = db.user.find_one({email})
+    user = db.user.find_one({'email':email})
     
     if not user :
         return jsonify(message="Invalid email or password"), 401
@@ -249,11 +249,11 @@ def logout_specific_session(session_id):
 
     return jsonify(message="Session logged out", session_id=session_id), 200
 
-@app.route('/protected', methods=['GET'])
-@jwt_required()
-def protected():
-    identity = get_jwt_identity()
-    return jsonify({"message": "Access granted", "user_id": identity['user_id']}), 200
+# @app.route('/protected', methods=['GET'])
+# @jwt_required()
+# def protected():
+#     identity = get_jwt_identity()
+#     return jsonify({"message": "Access granted", "user_id": identity['user_id']}), 200
 
 # registration route
 @api.route('/register', methods=['POST'])
