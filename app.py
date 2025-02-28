@@ -194,15 +194,15 @@ def login():
     if not email or not password:
         return jsonify(message="Missing email or password"), 400
     # check if the username and password match
-    user = db.user.find_one({'email': email})
+    user = db.user.find_one({email})
     
     if not user :
         return jsonify(message="Invalid email or password"), 401
-    elif user and not check_password_hash(user.get('auth_password', ''), password):
+    elif user and not check_password_hash(user.get('password', ''), password):
         return jsonify(message="Invalid email or password"), 401
     else:
         # create JWT token
-        access_token = create_access_token(identity=email, additional_claims={'user_id': uid})
+        access_token = create_access_token(identity=email)
         return jsonify(access_token=access_token), 200
 
 # logout route
