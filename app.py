@@ -16,7 +16,7 @@ import uuid
 api = Blueprint('api', __name__, url_prefix='/api')
 app = Flask(__name__)
 CORS(app)
-port = int(os.environ.get("PORT", 5000))
+port = int(os.environ.get("PORT", 10000))
 
 
 # Set up Flask-SocketIO
