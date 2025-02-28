@@ -313,7 +313,7 @@ def get_leaderboard():
         leaderboard.append({
             "name": user['name'],
             "email": user['email'],
-            "username": user['username'],
+            "username": user['user'],
             "total_steps": user.get('total_steps', 0),
             "total_distance": user.get('total_distance', 0),
             "total_time": user.get('total_time', 0),
