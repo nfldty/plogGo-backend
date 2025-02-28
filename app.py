@@ -219,6 +219,7 @@ def logout():
     
     return jsonify(message="Successfully logged out"), 200
 
+# Get all user sessions
 @app.route('/user/sessions', methods=['GET'])
 @jwt_required()
 def get_user_sessions():
