@@ -280,7 +280,7 @@ def register():
         'email': email, 
         'password': hashed_password
     })
-    return jsonify(message="User registered successfully", user_id=id), 201
+    return jsonify(message="User registered successfully"), 201
 
 
 # Update user information (Profile), user needs to be authenticated
