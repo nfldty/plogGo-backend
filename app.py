@@ -20,7 +20,7 @@ port = int(os.environ.get("PORT", 10000))
 
 
 # Set up Flask-SocketIO
-socketio = SocketIO(app, cors_allowed_origins="*")  # Allow connections from any origin
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')  # Allow connections from any origin
 
 # load env variables
 load_dotenv()
