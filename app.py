@@ -276,7 +276,7 @@ def register():
     hashed_password = generate_password_hash(password)
 
     # save user registered data to database
-    id = db.user_authentication.insert_one({
+    id = db.user.insert_one({
         'email': email, 
         'password': hashed_password
     })
